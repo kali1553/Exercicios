@@ -3,14 +3,10 @@ def isCPF(string):
     cpf = list(map(int, string))
     cpfTrue = ''
     posição = 0
-    for y in CPF:
-        if posição % 3 == 0 and posição != 9 and posição != 0:
-            cpfTrue += "."
-        elif posição == 9:
-            cpfTrue+="-"
-        cpfTrue += y
-        posição +=1
-    print(cpfTrue)
+    
+    if len(CPF) == 11:
+        cpfTrue = '{}.{}.{}-{}'.format(CPF[:3], CPF[3:6], CPF[6:9], CPF[9:])
+        print(cpfTrue)
 
     if len(cpf) == 11 and cpf.count(cpf[0]) != len(cpf):
         Decrescente = [i for i in range(10, 1, -1)]
